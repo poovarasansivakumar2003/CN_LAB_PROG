@@ -1,5 +1,18 @@
-### 🚀 Program 1a
-Develop a program that accept the list and iterates over a list of numbers first and prints the numbers in the list whose square is divisible by 8.
----
-### 🚀 Program 1b
-Develop a program that illustrates: SyntaxError, IndexError, ValueError, TypeError in a statement. 
+### 🚀 Program 5
+Simulate the Ethernet LAN using n nodes (6-10), change error rate and data rate and compare throughput.
+--- 
+### Terminal Code for Output
+<ul>
+<li>
+
+```
+ns 5.tcl
+```
+</li>
+<li>
+
+```
+awk -f 5.awk 5.tr
+```
+</li>
+</ul>

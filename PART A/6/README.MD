@@ -1,5 +1,38 @@
-### 🚀 Program 1a
-Develop a program that accept the list and iterates over a list of numbers first and prints the numbers in the list whose square is divisible by 8.
+### 🚀 Program 6
+Write a Program to implement sliding window protocol.
 ---
-### 🚀 Program 1b
-Develop a program that illustrates: SyntaxError, IndexError, ValueError, TypeError in a statement. 
+### Terminal Code for Output
+<ul>
+<li>Terminal Code for Sender Output
+<ul>
+<li>
+
+```
+gcc sender6.c
+```
+</li>
+<li>
+
+```
+./a.out
+```
+</li>
+</ul>
+</li>
+<li>Terminal Code for receiver Output</li>
+<ul>
+<li>
+
+```
+gcc receiver6.c
+```
+</li>
+<li>
+
+```
+./a.out
+```
+</li>
+</ul>
+</li>
+</ul>

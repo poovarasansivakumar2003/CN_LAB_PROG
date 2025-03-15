@@ -1,5 +1,44 @@
-### 🚀 Program 1a
-Develop a program that accept the list and iterates over a list of numbers first and prints the numbers in the list whose square is divisible by 8.
+### 🚀 Program 4
+Using TCP/IP sockets, write a client – server program to make the client send the file name and to make the server send back the contents of the requested file if present
 ---
-### 🚀 Program 1b
-Develop a program that illustrates: SyntaxError, IndexError, ValueError, TypeError in a statement. 
+### Terminal Code for Output
+<ul>
+<li>Terminal Code for Server Output
+<ul>
+<li>
+
+```
+gcc server4.c
+```
+</li>
+<li>
+
+```
+./a.out 8000
+```
+</li>
+</ul>
+</li>
+<li>Terminal Code for Client Output</li>
+<ul>
+<li>
+
+```
+gcc client4.c
+```
+</li>
+<li>
+
+```
+./a.out 127.0.0.1 8000
+```
+</li>
+<li>
+
+```
+Enter filename: hello.txt
+```
+</li>
+</ul>
+</li>
+</ul>

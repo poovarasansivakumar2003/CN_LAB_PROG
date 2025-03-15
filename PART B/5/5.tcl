@@ -1,7 +1,7 @@
 set ns [new Simulator]
-set tf [open lab5.tr w]
+set tf [open 5.tr w]
 $ns trace-all $tf
-set nf [open lab5.nam w]
+set nf [open 5.nam w]
 $ns namtrace-all $nf
 $ns color 1 "red"
 set n0 [$ns node]
@@ -37,7 +37,7 @@ $err set rate_ 0.2 ;# This is the error rate. Change this
  ;#rate to add errors between n3 and n6.
 proc finish { } {
 global nf ns tf
-exec nam lab5.nam &
+exec nam 5.nam &
 close $nf
 close $tf
 exit 0

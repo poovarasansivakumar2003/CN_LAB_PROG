@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 
 void genhamcode();
 void makeerror();
@@ -10,8 +9,6 @@ int h[12];
 void main()
 {
     int i, ch;
-    
-    clrscr(); // Clear the screen for Turbo C
     
     printf("\nEnter the message in bits (7 bits):\n");
     for (i = 1; i < 12; i++)
@@ -36,8 +33,6 @@ void main()
     {
         printf("\nNo error introduced.");
     }
-
-    getch(); // Hold the output screen for Turbo C
 }
 
 void genhamcode()

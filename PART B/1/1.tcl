@@ -1,7 +1,7 @@
 set ns [ new Simulator ]
-set tf [ open lab1.tr w ]
+set tf [ open 1.tr w ]
 $ns trace-all $tf
-set nf [ open lab1.nam w ]
+set nf [ open 1.nam w ]
 $ns namtrace-all $nf
 # The below code is used to create the nodes.
 set n0 [$ns node]
@@ -42,13 +42,12 @@ $ns connect $udp0 $null3
 $ns connect $udp1 $null3
 #The below code is used to set the packet size to 500
 $cbr1 set packetSize_ 500Mb
-#The below code is used to set the interval of the packets, #i.e., Data rate of the packets. if the 
-data rate is high #then packets drops are high.
+#The below code is used to set the interval of the packets, #i.e., Data rate of the packets. if the data rate is high #then packets drops are high.
 $cbr1 set interval_ 0.005 
 proc finish { } { 
 global ns nf tf
 $ns flush-trace
-exec nam lab1.nam &
+exec nam 1.nam &
 close $tf
 close $nf
 exit 0

@@ -1,5 +1,18 @@
-### 🚀 Program 1a
-Develop a program that accept the list and iterates over a list of numbers first and prints the numbers in the list whose square is divisible by 8.
+### 🚀 Program 3
+Simulate the transmission of ping messages over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion.
 ---
-### 🚀 Program 1b
-Develop a program that illustrates: SyntaxError, IndexError, ValueError, TypeError in a statement. 
+### Terminal Code for Output
+<ul>
+<li>
+
+```
+ns 3.tcl
+```
+</li>
+<li>
+
+```
+awk -f 3.awk 3.tr
+```
+</li>
+</ul>

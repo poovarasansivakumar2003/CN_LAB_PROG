@@ -1,7 +1,7 @@
 set ns [new Simulator]
-set tf [open lab2.tr w]
+set tf [open 2.tr w]
 $ns trace-all $tf
-set nf [open lab2.nam w]
+set nf [open 2.nam w]
 $ns namtrace-all $nf
 set n0 [$ns node]
 set n1 [$ns node]
@@ -41,8 +41,7 @@ $ns attach-agent $n3 $null3
 #The below code is used to set the packet size of ftp and #udp.
 $ftp0 set packetSize_ 500
 $ftp0 set interval_ 0.001
-#The below code is used to increase the data rate(if the #interval is more then the more 
-number of packets goes to #destination).
+#The below code is used to increase the data rate(if the #interval is more then the more number of packets goes to #destination).
 $cbr1 set packetSize_ 500
 $cbr1 set interval_ 0.001
 #This code is used give a color red->tcp and blue ->udp.
@@ -54,7 +53,7 @@ $ns connect $udp1 $null3
 proc finish { } {
 global ns nf tf
 $ns flush-trace
-exec nam lab2.nam & 
+exec nam 2.nam & 
 close $nf
 close $tf
 exit 0

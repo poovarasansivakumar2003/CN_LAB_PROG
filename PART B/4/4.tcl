@@ -1,7 +1,7 @@
 set ns [new Simulator]
-set tf [open lab4.tr w]
+set tf [open 4.tr w]
 $ns trace-all $tf
-set nf [open lab4.nam w]
+set nf [open 4.nam w]
 $ns namtrace-all $nf
 set n0 [$ns node]
 set n1 [$ns node]
@@ -33,7 +33,7 @@ $tcp2 trace cwnd_
 proc finish { } {
 global nf tf ns 
 $ns flush-trace
-exec nam lab4.nam &
+exec nam 4.nam &
 close $nf
 close $tf
 exit 0

@@ -1,9 +1,9 @@
 set ns [new Simulator]
 #create trace file
-set trace_file [open lab3.tr w]
+set trace_file [open 3.tr w]
 $ns trace-all $trace_file
 #create nam trace file
-set nam_file [open lab3.nam w]
+set nam_file [open 3.nam w]
 $ns namtrace-all $nam_file
 # Creating nodes.
 set n0 [$ns node]
@@ -64,7 +64,7 @@ puts " The node [$node_ id] received a reply from $from with round trip time of 
 proc finish { } {
 global ns nam_file trace_file
 $ns flush-trace
-exec nam lab3.nam &
+exec nam 3.nam &
 close $trace_file
 close $nam_file
 exit 0
