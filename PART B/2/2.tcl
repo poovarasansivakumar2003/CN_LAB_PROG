@@ -1,22 +1,32 @@
+# Creates a new NS2 simulation instance.
 set ns [new Simulator]
+
+# Save simulation logs to 2.tr (text trace) and 2.nam (animation view in NAM tool).
 set tf [open 2.tr w]
 $ns trace-all $tf
 set nf [open 2.nam w]
 $ns namtrace-all $nf
+
+# The below code is used to create the nodes.
 set n0 [$ns node]
 set n1 [$ns node]
 set n2 [$ns node]
 set n3 [$ns node]
-# The below code is used to set the color and name's to the #nodes.
+
+# This is used to give color and label to the packets.
 $ns color 1 "red"
 $ns color 2 "blue"
 $n0 label "source/TCP"
 $n1 label "source/UDP"
 $n2 label "Router"
 $n3 label "destination"
+
+# Create Full Duplex Links Between Nodes
+# Format: ns duplex-link source dest bandwidth delay queuingPolicy
 $ns duplex-link $n0 $n2 100Mb 1ms DropTail
 $ns duplex-link $n1 $n2 100Mb 1ms DropTail
 $ns duplex-link $n2 $n3 100Mb 1ms DropTail
+
 # The below code is used to set the color and labels to the #links.
 $ns duplex-link-op $n0 $n2 color "green"
 $ns duplex-link-op $n0 $n2 label "from 0-2"
@@ -24,32 +34,50 @@ $ns duplex-link-op $n1 $n2 color "green"
 $ns duplex-link-op $n1 $n2 label "from 1-2"
 $ns duplex-link-op $n2 $n3 color "green"
 $ns duplex-link-op $n2 $n3 label "from 2-3"
-# The below code is used create TCP and UDP agents and the 
-# traffic ftp & cbr respectively.
+
+# The below code is used create TCP and UDP agents and the traffic ftp & cbr respectively.
+
+# TCP agent at n0
 set tcp0 [new Agent/TCP]
 $ns attach-agent $n0 $tcp0
+
+# FTP application over TCP
 set ftp0 [new Application/FTP]
 $ftp0 attach-agent $tcp0
-set sink3 [new Agent/TCPSink]
-$ns attach-agent $n3 $sink3
+
+# UDP agent at n1
 set udp1 [new Agent/UDP]
 $ns attach-agent $n1 $udp1
+
+# CBR traffic over UDP
 set cbr1 [new Application/Traffic/CBR]
 $cbr1 attach-agent $udp1
+
+# TCP Sink (receiver) at n3
+set sink3 [new Agent/TCPSink]
+$ns attach-agent $n3 $sink3
+
+# Null agent at n3 (to receive UDP packets)
 set null3 [new Agent/Null]
 $ns attach-agent $n3 $null3
-#The below code is used to set the packet size of ftp and #udp.
+
+#The below code is used to set the packet size of ftp and udp.
 $ftp0 set packetSize_ 500
 $ftp0 set interval_ 0.001
-#The below code is used to increase the data rate(if the #interval is more then the more number of packets goes to #destination).
+
+#The below code is used to increase the data rate(if the interval is more then the more number of packets goes to destination).
 $cbr1 set packetSize_ 500
 $cbr1 set interval_ 0.001
+
 #This code is used give a color red->tcp and blue ->udp.
 $tcp0 set class_ 1
 $udp1 set class_ 2
+
 # The below code is used connect the agents.
 $ns connect $tcp0 $sink3
 $ns connect $udp1 $null3
+
+# Simulation Control: Finish Procedure
 proc finish { } {
 global ns nf tf
 $ns flush-trace
@@ -58,6 +86,8 @@ close $nf
 close $tf
 exit 0
 }
+
+# Schedule Events and Run
 $ns at 0.1 "$cbr1 start"
 $ns at 0.2 "$ftp0 start"
 $ns at 5.0 "finish"

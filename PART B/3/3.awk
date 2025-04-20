@@ -7,5 +7,5 @@ count=0
  count++
 }
 END{
- printf("The Total no of Packets Dropped due toCongestion:%d ", count)
+ printf("The Total no of Packets Dropped due to Congestion:%d \n", count)
 }

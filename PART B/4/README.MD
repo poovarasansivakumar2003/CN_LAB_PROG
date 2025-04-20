@@ -33,7 +33,7 @@ awk -f 4.awk file2.tr>tcp2
 <li>
 
 ```
-gnuplot -p -e "plot 'tcp1' using 1:2 with lines title 'TCP1', 'tcp2' using 1:2 with lines title 'TCP2'
+gnuplot -p -e "plot 'tcp1' using 1:2 with lines title 'TCP1', 'tcp2' using 1:2 with lines title 'TCP2'"
 ```
 </li>
 </ul>
