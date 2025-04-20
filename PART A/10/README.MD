@@ -6,7 +6,7 @@ Write a program to implement Congestion Control using leaky bucket.
 <li>
 
 ```
-gcc 10.c
+gcc 9.c
 ```
 </li>
 <li>

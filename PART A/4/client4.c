@@ -28,8 +28,7 @@ int main(int argc, char *argv[]) {
     }
 
     // -------------------- Create Socket --------------------
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockfd < 0)
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
         error("ERROR opening socket");
 
     // -------------------- Get Server by Hostname --------------------
@@ -41,11 +40,10 @@ int main(int argc, char *argv[]) {
 
     // -------------------- Initialize Server Address Structure --------------------
     bzero((char *)&serv_addr, sizeof(serv_addr));
+
     serv_addr.sin_family = AF_INET;
     bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr, server->h_length);
-
-    portno = atoi(argv[2]);
-    serv_addr.sin_port = htons(portno);
+    serv_addr.sin_port = htons(atoi(argv[1]));
 
     // -------------------- Connect to Server --------------------
     printf("CLIENT: Connecting to server...\n");

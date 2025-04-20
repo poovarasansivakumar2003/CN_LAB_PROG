@@ -27,17 +27,15 @@ int main(int argc, char *argv[]) {
     }
 
     // -------------------- Create Socket --------------------
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockfd < 0)
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
         error("ERROR opening socket");
 
     // -------------------- Initialize Server Address --------------------
     bzero((char *)&serv_addr, sizeof(serv_addr));
-    portno = atoi(argv[1]);
 
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = INADDR_ANY;
-    serv_addr.sin_port = htons(portno);
+    serv_addr.sin_port = htons(atoi(argv[1]));
 
     // -------------------- Bind Socket to Port --------------------
     if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
