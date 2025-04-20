@@ -16,7 +16,7 @@ void Dijkstra::readMatrix() {
     cout << "Enter the number of vertices: ";
     cin >> n;
 
-    cout << "Enter the cost adjacency matrix (use a high value like " << INT_MAX << " for no direct edge):\n";
+    cout << "Enter the cost adjacency matrix (use a high value like 99 for no direct edge):\n";
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cin >> cost[i][j];
@@ -35,7 +35,7 @@ void Dijkstra::findShortestPath(int src) {
     visited[src] = 1; // Mark the source as visited
 
     for (int i = 1; i < n; i++) { // Find shortest path for all vertices
-        int min = INT_MAX, u = -1;
+        int min = 99, u = -1;
 
         for (int j = 0; j < n; j++) {
             if (!visited[j] && dist[j] < min) {
@@ -48,7 +48,7 @@ void Dijkstra::findShortestPath(int src) {
         visited[u] = 1;
 
         for (int v = 0; v < n; v++) {
-            if (!visited[v] && cost[u][v] != INT_MAX && (dist[u] + cost[u][v] < dist[v])) {
+            if (!visited[v] && cost[u][v] != 99 && (dist[u] + cost[u][v] < dist[v])) {
                 dist[v] = dist[u] + cost[u][v];
                 parent[v] = u;
             }
@@ -62,7 +62,7 @@ void Dijkstra::display(int src) {
 
         cout << "Shortest path from " << src << " to " << i << ":\n";
         
-        if (dist[i] == INT_MAX) {
+        if (dist[i] == 99) {
             cout << "No path exists\n";
             continue;
         }
